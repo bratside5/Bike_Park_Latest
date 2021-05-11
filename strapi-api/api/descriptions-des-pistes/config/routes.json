@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/descriptions-des-pistes",
+      "handler": "descriptions-des-pistes.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/descriptions-des-pistes/count",
+      "handler": "descriptions-des-pistes.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/descriptions-des-pistes/:id",
+      "handler": "descriptions-des-pistes.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/descriptions-des-pistes",
+      "handler": "descriptions-des-pistes.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/descriptions-des-pistes/:id",
+      "handler": "descriptions-des-pistes.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/descriptions-des-pistes/:id",
+      "handler": "descriptions-des-pistes.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

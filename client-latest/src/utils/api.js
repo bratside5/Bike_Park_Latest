@@ -6,7 +6,7 @@ export function getStrapiURL(path = "") {
   }
   if (process.env.NODE_ENV === "production") {
     console.log("production server");
-    return `${API_URL_PRODUCTION || "https://bikeparktignes.com/api"}${path}`;
+    return `${API_URL || "https://bikeparktignes.com/api"}${path}`;
   }
 }
 

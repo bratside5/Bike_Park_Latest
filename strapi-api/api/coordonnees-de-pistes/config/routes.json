@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/coordonnees-de-pistes",
+      "handler": "coordonnees-de-pistes.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/coordonnees-de-pistes",
+      "handler": "coordonnees-de-pistes.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/coordonnees-de-pistes",
+      "handler": "coordonnees-de-pistes.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

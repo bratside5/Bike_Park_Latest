@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "descriptions_des_pistes",
+  "info": {
+    "name": "Descriptions des Pistes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "unique": false,
+      "required": true,
+      "maxLength": 500,
+      "minLength": 50,
+      "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid omnis porro reprehenderit, ex sint officiis laborum, architecto molestiae recusandae ea similique repudiandae unde soluta laudantium amet? Quasi facere doloribus quas fugiat natus accusamus et suscipit quia corporis maxime voluptatibus id sit non atque quibusdam, animi neque esse dicta, magni veniam rerum eos harum laudantium hic! Aperiam sed voluptatum accusantium ex reprehenderit deserunt eius officia atque deleniti, voluptatem, laborum illo! Tempora est enim magni assumenda unde nesciunt natus vel eveniet dolore, dignissimos voluptatum repellendus accusamus. Quod eos tempora accusantium esse sit hic ipsum cum eius deleniti, corporis eum nobis doloribus accusamus illum maxime eligendi dolor minima, repellendus repudiandae nisi saepe? Fugiat quisquam quam cum voluptatibus nesciunt atque tempora porro, ipsum sunt nam, quis dolor repellendus. Eaque illum voluptas, adipisci incidunt similique et laborum possimus inventore molestiae, ipsam, est qui dolorum? Saepe vero, ipsa itaque voluptates dicta quisquam aliquam a iste! Distinctio debitis quis eligendi modi veniam fugit quo expedita molestiae, dolorem accusantium corporis magnam animi reiciendis nihil consequuntur assumenda laudantium soluta hic ipsam omnis maiores alias sit. Dolore dignissimos magni ab tempora error aliquid commodi nesciunt perspiciatis, nam, totam modi sed, inventore officia eaque quam blanditiis deserunt. Libero alias sed officia recusandae incidunt voluptates expedita vel rerum placeat hic nihil quasi sint quibusdam ipsum inventore beatae exercitationem earum nisi facere, enim at nesciunt, quisquam soluta. Ullam sint quibusdam aperiam dolorem minus illum ipsum veritatis modi corporis fugit aliquid alias fugiat dolorum numquam, omnis blanditiis quasi ducimus id quae in molestiae? Earum voluptatibus ipsa error recusandae perferendis, incidunt iure, velit excepturi harum reiciendis natus amet exercitationem eum saepe? Natus similique dolor quo ad deserunt praesentium nobis animi adipisci consectetur magnam! Saepe quibusdam ullam asperiores tempore earum assumenda expedita consequuntur eveniet natus, laborum molestiae perspiciatis quidem consectetur aut ratione deserunt? Alias molestiae ducimus facere earum excepturi possimus laborum distinctio ratione doloribus, dolorum debitis quia velit? Rerum doloribus a, eum sunt blanditiis recusandae necessitatibus itaque nihil quod nisi omnis velit enim numquam tempora, odio reprehenderit sequi praesentium vero debitis quibusdam nulla, placeat exercitationem. Aliquam adipisci optio animi aliquid sunt, nemo suscipit minus voluptatum vel laudantium placeat modi, alias dignissimos laborum nostrum architecto similique libero ipsum praesentium non deleniti magni! Numquam reiciendis tempore nulla error voluptates suscipit ipsa explicabo necessitatibus sit esse vero consequuntur magnam expedita totam dolore ratione repudiandae, amet soluta obcaecati voluptatum quisquam iusto. Est itaque maiores tempore consequuntur. Laboriosam dignissimos voluptatibus incidunt dolore doloribus dolorum libero deleniti? Incidunt aperiam perferendis reiciendis error beatae sit quibusdam enim, aut tempore repudiandae dolore veritatis asperiores itaque sequi modi et quaerat vitae recusandae nesciunt praesentium, dignissimos ab sapiente officiis aspernatur. Et dolorum aperiam similique adipisci fugit illo quis facere nihil sapiente doloremque! Error esse quis eveniet, officiis fugiat tempora cum libero quae dolor illo nesciunt labore, assumenda ratione voluptatibus, sapiente excepturi dolorem exercitationem aliquid similique. Quibusdam, alias! Laudantium rem neque quasi cumque accusantium minima ratione voluptate magni cum iusto ea quae tenetur consectetur dolores ex porro ad nihil amet sint, fuga sapiente omnis nostrum dolorem. "
+    },
+    "access": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "maxLength": 300,
+      "minLength": 25,
+      "required": true,
+      "default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi at ipsa voluptatum. Nobis sunt mollitia nisi earum reprehenderit officia, nihil, quos aspernatur facere aperiam corporis minus aut sed. Distinctio adipisci optio amet natus ratione qui accusamus voluptate dolorem quos veniam. Veniam iure non accusamus tempore cumque ullam fugit quos adipisci facere saepe beatae magnam cum neque, facilis dolorem amet eligendi praesentium porro, quia delectus eveniet ut ab eos! Voluptatem, illo consectetur? Dignissimos sapiente quos illum! Amet aliquid assumenda, sequi provident veritatis, cum voluptatibus sapiente iure molestias saepe ipsam, error quo deserunt iusto aut ad vel? Perspiciatis non debitis doloremque, assumenda nemo rerum, consectetur accusamus, ipsum excepturi veniam tempora. Eos ut sed odit provident sint nesciunt dignissimos assumenda. Qui at deleniti voluptate magnam ad cum. Unde veritatis a aliquam, temporibus consectetur provident natus adipisci, odit cum nobis non quos autem impedit accusamus voluptas soluta voluptates recusandae corrupti ipsam, in voluptatum dolorem. Minima praesentium, atque asperiores modi illo nesciunt harum ea officiis! Optio unde, ipsum nobis eum corrupti pariatur atque dolorum, recusandae temporibus expedita facere distinctio incidunt voluptatibus rerum asperiores autem hic minima. Eveniet, porro. Totam tempora laboriosam voluptatibus magni nulla fuga quibusdam culpa ipsam eum iure minima repellendus facilis asperiores iste architecto, reprehenderit neque! Sapiente quidem reiciendis laudantium quia, neque eveniet beatae animi assumenda. Architecto nobis quam aut, magnam, error enim reprehenderit similique cupiditate dolorum inventore molestias distinctio ipsam quae beatae molestiae alias exercitationem aliquid labore, eveniet amet. Commodi, dolore iure non labore consectetur illum, beatae blanditiis officiis, aliquam porro animi. Reiciendis, sequi soluta, laborum ab voluptatum perferendis, repellat dolor maxime consequuntur dicta natus adipisci ipsum impedit illo deleniti pariatur odio fugiat repellendus minus quam! Laborum maiores ab doloribus quia pariatur facere vel accusamus quasi, eius molestias harum rem distinctio nihil! Ut dicta esse praesentium ipsum odit fugiat debitis itaque recusandae."
+    },
+    "image_principale": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "galerie_images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "lien_youtube": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "unique": false
+    }
+  }
+}

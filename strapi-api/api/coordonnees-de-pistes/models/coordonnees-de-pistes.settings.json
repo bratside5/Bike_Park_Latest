@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "coordonnees_de_pistes",
+  "info": {
+    "name": "Coordonnées de Pistes"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "GeoJson": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}
