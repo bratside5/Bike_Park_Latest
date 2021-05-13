@@ -14,7 +14,7 @@ function MainMap() {
   const [selectData, setSelectData] = useState([]);
 
   useEffect(async () => {
-    const requestUrl = fetchLocalApi("trail-payload");
+    const requestUrl = fetchLocalApi("/trail-payload");
     const response = await fetch(requestUrl);
     const data = await response.json();
     setTrailData(data);

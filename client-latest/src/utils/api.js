@@ -20,9 +20,9 @@ export async function fetchAPI(path) {
 export function fetchLocalApi(path = "") {
   const { API_URL_LOCAL } = process.env;
   if (process.env.NODE_ENV === "development") {
-    return `${API_URL_LOCAL}/${path}`;
+    return `${API_URL_LOCAL}${path}`;
   }
   if (process.env.NODE_ENV === "production") {
-    return `${API_URL_LOCAL}/${path}`;
+    return `${API_URL_LOCAL}${path}`;
   }
 }

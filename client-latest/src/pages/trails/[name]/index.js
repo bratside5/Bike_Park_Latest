@@ -40,7 +40,7 @@ const index = ({ data, params, geoJson }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const data = await fetchAPI(`/descriptions-des-pistes/?slug=${params.name}`);
-  const requestUrl = fetchLocalApi(`trail-payload/${params.name}`);
+  const requestUrl = fetchLocalApi(`/trail-payload/${params.name}`);
   const response = await fetch(requestUrl);
   const geoJson = await response.json();
 
