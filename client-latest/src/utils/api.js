@@ -23,6 +23,6 @@ export function fetchLocalApi(path = "") {
     return `http://localhost:3000/api/${path}`;
   }
   if (process.env.NODE_ENV === "production") {
-    return `http://localhost:3000/api/${path}`;
+    return `${API_URL_PRODUCTION}/api/${path}`;
   }
 }
