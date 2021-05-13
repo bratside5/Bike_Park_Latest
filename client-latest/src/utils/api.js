@@ -18,11 +18,11 @@ export async function fetchAPI(path) {
 }
 
 export function fetchLocalApi(path = "") {
-  const { API_URL_PRODUCTION } = process.env;
+  const { API_URL_LOCAL } = process.env;
   if (process.env.NODE_ENV === "development") {
-    return `http://localhost:3000/api/${path}`;
+    return `${API_URL_LOCAL}/${path}`;
   }
   if (process.env.NODE_ENV === "production") {
-    return `${API_URL_PRODUCTION}/api/${path}`;
+    return `${API_URL_LOCAL}/${path}`;
   }
 }
