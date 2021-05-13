@@ -6,9 +6,7 @@ export function getStrapiURL(path = "") {
   }
   if (process.env.NODE_ENV === "production") {
     console.log("production server");
-    return `${
-      API_URL_PRODUCTION || "https://bikeparktignes.com/strapi"
-    }${path}`;
+    return `${API_URL || "http://localhost:1337"}${path}`;
   }
 }
 
@@ -20,10 +18,11 @@ export async function fetchAPI(path) {
 }
 
 export function fetchLocalApi(path = "") {
+  const { API_URL_PRODUCTION } = process.env;
   if (process.env.NODE_ENV === "development") {
     return `http://localhost:3000/api/${path}`;
   }
   if (process.env.NODE_ENV === "production") {
-    return `https://bikeparktignes.com/api/${path}`;
+    return `http://localhost:3000/api/${path}`;
   }
 }

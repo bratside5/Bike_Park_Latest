@@ -1,42 +1,56 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { fetchAPI, fetchLocalApi } from "@/utils/api";
+import Image from "next/image";
 
-import { fetchAPI } from "@/utils/api";
-// import useSWR from "swr";
+const index = ({ data, params, geoJson }) => {
+  const [geoJsonData, setGeoJsonData] = useState([]);
 
-const index = ({ data, params }) => {
-  const router = useRouter();
-  console.log(data);
-  const {
-    title,
-    description_en,
-    description_fr,
-    access_en,
-    access_fr,
-    image: { url },
-  } = data[0];
+  if (data.length > 0) {
+    const {
+      title,
+      description,
+      access,
+      image_principale: { url, width, height },
+    } = data[0];
+
+    const { Type, Difficulté, Colour, Dénivelé, Distance, Secteur } =
+      geoJson[0];
+
+    console.log(Type);
+    return (
+      <>
+        <section style={{ height: "60vh", position: "relative" }} className="">
+          {title && title ? title : "Title Missing"}
+          <div className="">{description}</div>
+          <br />
+          <div className="">{access}</div>
+          <Image src={url} width={width} height={height} alt="" />
+        </section>
+      </>
+    );
+  }
 
   return (
-    <>
-      <section style={{ height: "60vh", position: "relative" }} className="">
-        {title}
-        <div className="">{description_en}</div>
-        <img src={url} alt="" />
-      </section>
-    </>
+    <div className="flex h-screen w-auto justify-center items-center">
+      Not Found...
+    </div>
   );
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const data = await fetchAPI(`/trails?slug=${params.name}`);
-  if (!data) {
-    return {
-      notFound: true,
-    };
+  const data = await fetchAPI(`/descriptions-des-pistes/?slug=${params.name}`);
+  const requestUrl = fetchLocalApi(`trail-payload/${params.name}`);
+  const response = await fetch(requestUrl);
+  const geoJson = await response.json();
+
+  if ((!data, !geoJson)) {
+    console.log("Not Found");
   }
   return {
     props: {
       data,
+      geoJson,
       params,
     },
   };

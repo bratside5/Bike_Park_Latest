@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import { Listbox } from "@headlessui/react";
 
-export default function SelectDifficulty({
-  selectedDifficulty,
-  setSelectedDifficulty,
-}) {
+export default function SelectDifficulty({ query, setQuery }) {
   useEffect(() => {
-    setSelectedDifficulty(levels[0]);
+    setQuery(levels[0]);
   }, []);
   const levels = [
     { id: 0, name: "Tous" },
@@ -18,8 +15,8 @@ export default function SelectDifficulty({
   ];
 
   return (
-    <Listbox value={selectedDifficulty} onChange={setSelectedDifficulty}>
-      <Listbox.Button>{selectedDifficulty.name}</Listbox.Button>
+    <Listbox value={query} onChange={setQuery}>
+      <Listbox.Button>{query.name}</Listbox.Button>
       <Listbox.Options className="border-gray-200 rounded bg-gray-50 px-3 py-1 w-auto h-auto ">
         {levels.map((level) => (
           <Listbox.Option key={level.id} value={level}>

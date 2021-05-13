@@ -1,9 +1,18 @@
 require("dotenv").config();
 
+if (process.env.NODE_ENV === "production") {
+  url = "https://bikeparktignes.com/strapi";
+}
+
+if (process.env.NODE_ENV !== "production") {
+  url = "http://localhost:1337";
+}
+
 module.exports = ({ env }) => ({
   host: env("HOST", "0.0.0.0"),
   port: env.int("PORT", 1337),
-  url: "https://bikeparktignes.com/strapi",
+
+  url,
 
   admin: {
     auth: {

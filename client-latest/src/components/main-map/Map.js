@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import slugify from "slugify";
@@ -7,9 +7,10 @@ const { MAPBOX_TOKEN } = process.env;
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
 export const Map = ({ trailData, category, setCategory }) => {
+  const [categoryMenu, setCategoryMenu] = useState(true);
   const mapContainer = useRef();
   const filterButton = useRef();
-  const popupButton = useRef();
+  const popUp = useRef();
 
   useEffect(() => {
     var bounds = [
@@ -19,15 +20,17 @@ export const Map = ({ trailData, category, setCategory }) => {
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/satellite-streets-v11?optimize=true",
-      center: [6.914365725672369, 45.458120780570376],
-      zoom: 14,
-      pitch: 65,
+      center: [6.920564141919044, 45.455159501943314],
+      zoom: 15,
+      pitch: 45,
+      bearing: -45,
       maxBounds: bounds,
     });
 
     function rotateCamera(timestamp) {
       // clamp the rotation between 0 -360 degrees
       // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+
       map.rotateTo((timestamp / 100) % 360, { duration: 0 });
       // Request the next frame of the animation.
       requestAnimationFrame(rotateCamera);
@@ -97,6 +100,9 @@ export const Map = ({ trailData, category, setCategory }) => {
           "text-font": ["Open Sans Regular"],
           "text-field": "{Nom}",
           "text-size": 16,
+          "text-variable-anchor": ["top", "bottom", "left", "right"],
+          "text-radial-offset": 0.5,
+          "text-justify": "auto",
 
           "symbol-spacing": 500,
           "text-allow-overlap": true,
@@ -113,6 +119,7 @@ export const Map = ({ trailData, category, setCategory }) => {
       );
 
       console.log(map.getLayer("route-layer"));
+
       // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
       map.on("mouseenter", "route-layer", function () {
         map.getCanvas().style.cursor = "pointer";
@@ -129,27 +136,37 @@ export const Map = ({ trailData, category, setCategory }) => {
         slug = e.features[0].properties.Nom.toString();
         const url = slugify(slug, { lower: true, strict: true });
         console.log(`Slug is ${url}`);
-        console.log("click");
-
+        map.flyTo({
+          center: e.lngLat,
+        });
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(
-            `<div class="h-full w-auto">
-            <div class="text-lg font-semibold">
-              <p>${e.features[0].properties.Nom}</p>
+            `
+            <div ref={popUp} class="h-full w-auto p-3">
+            <div class="text-2xl font-semibold flex items-center justify-center">
+            <p class="">${e.features[0].properties.Nom}</p>
             </div>
-            <div class="">
-              <p>${e.features[0].properties.Difficulté}</p>
+            <div class="flex items-center justify-center py-3">
+            <p class="text-xl">${e.features[0].properties.Type}</p>
             </div>
-            
-            <button class="bg-gray-200 w-auto h-auto px-6 shadow-sm">
-              <a href="trails/${url}"class="">
-                Go
-              </a>
+            <div class="flex items-center justify-center py=1">
+            <p class="text-lg">Difficulté: ${e.features[0].properties.Difficulté}</p>
+            </div>
+            <div class="flex items-center justify-center py-1">
+            <p class="text-lg">Secteur: ${e.features[0].properties.Secteur}</p>
+            </div>
+            <div class="flex items-center justify-center pt-3">
+            <button class="bg-gray-200 w-32 h-10 rounded">
+            <a href="trails/${url}" class="">
+            Go
+            </a>
             </button>
-        
-          </div>`
+            </div>
+            </div>
+            `
           )
+
           .addTo(map);
         console.log(e.lngLat);
       });
@@ -188,15 +205,23 @@ export const Map = ({ trailData, category, setCategory }) => {
   return (
     <>
       <div
+        ref={filterButton}
+        className="px-3 py-3 flex items-center justify-between bg-gray-100"
+      >
+        <select
+          id="difficultyLevelFilter"
+          name="difficultyLevelFilter"
+          className=" border border-gray-400 rounded p-1"
+        >
+          <option value="">Tous les Pistes</option>
+        </select>
+      </div>
+
+      <div
         id="map"
         ref={mapContainer}
         style={{ width: "100%", height: "100vh" }}
       ></div>
-      <div class="overlay" ref={filterButton}>
-        <select id="difficultyLevelFilter" name="difficultyLevelFilter">
-          <option value="">Tous les Pistes</option>
-        </select>
-      </div>
     </>
   );
 };

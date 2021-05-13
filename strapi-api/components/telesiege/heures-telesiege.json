@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_telesiege_heures_telesieges",
+  "info": {
+    "name": "heures_telesiege",
+    "icon": "tram"
+  },
+  "options": {},
+  "attributes": {
+    "bollin": {
+      "type": "time"
+    },
+    "tufs": {
+      "type": "time"
+    },
+    "toviere": {
+      "type": "time"
+    },
+    "palafour": {
+      "type": "time"
+    }
+  }
+}

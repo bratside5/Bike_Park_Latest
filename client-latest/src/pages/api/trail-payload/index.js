@@ -11,7 +11,6 @@ export default async function handler(req, res) {
     const trailData = await trail.json();
 
     res.status(200).json(trailData);
-    return URL;
   } catch (error) {
     console.log("error", error);
   }

@@ -1,31 +1,40 @@
-// import TabsRender from "@/components/tabs";
-// import TrailsList from "@/components/trails-list";
-import { fetchAPI } from "@/utils/api";
-// import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-// import { useTranslation } from "next-i18next";
+import { useState } from "react";
+import DataTable from "@/components/data-table/DataTable";
+import { fetchAPI, fetchLocalApi } from "@/utils/api";
+import SelectDifficulty from "@/components/data-table/SelectDifficulty";
+import PageTitle from "@/components/page-title";
 
-const index = ({ data, categoryData }) => {
+const index = ({ geoJson }) => {
+  const [query, setQuery] = useState("");
+  const title = "Trails";
   return (
-    <div>
-      {/* <TabsRender /> */}
-      {/* <TrailsList data={data} categoryData={categoryData} /> */}
-    </div>
+    <>
+      <PageTitle title={title} />
+      <div className="mb-6">
+        <div className="flex items-center justify-center px-3">
+          {/* <SelectDifficulty query={query} setQuery={setQuery} /> */}
+        </div>
+        <div className="flex items-center justify-center">
+          <DataTable geoJson={geoJson} />{" "}
+        </div>
+      </div>
+    </>
   );
 };
 
 export const getServerSideProps = async ({ locale }) => {
-  const data = await fetchAPI("/trails");
-  const categoryData = await fetchAPI("/categories");
-  if ((!data, !categoryData)) {
-    return {
-      notFound: true,
-    };
+  const data = await fetchAPI(`/descriptions-des-pistes`);
+  const requestUrl = fetchLocalApi(`trail-payload`);
+  const response = await fetch(requestUrl);
+  const geoJson = await response.json();
+
+  if ((!data, !geoJson)) {
+    console.log("Not Found");
   }
   return {
     props: {
       data,
-      categoryData,
-      // ...(await serverSideTranslations(locale, ["common", "trail-info"])),
+      geoJson,
     },
   };
 };

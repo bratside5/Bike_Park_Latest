@@ -1,0 +1,43 @@
+{
+  "homepage": "Home",
+  "page_title": "Info Trail",
+  "language": "FR",
+  "homepage-content": {
+    "homepage": "Home",
+    "language": "FR"
+  },
+  "trail-info": {
+    "trail": "Piste",
+    "positive_incline": "Denivele Positif",
+    "negative_incline": "Denivele Negatif",
+    "difficulty": "Difficulte",
+    "length": "Longeur",
+    "colour": "Coleur"
+  },
+  "buttons": {
+    "go": "Aller"
+  },
+  "contact": {
+    "title": "En Cas d'Urgence"
+  },
+  "menu": {
+    "home": "Accueil",
+    "info": "Info & Ouverture",
+    "rules": "Règles de Sécurité",
+    "contact": "En Cas d'Urgence",
+    "theme": "Change",
+    "language": "Change"
+  },
+  "select": {
+    "all-trails": "Voir Tous",
+    "beginner": "Pistes Debutant",
+    "easy": "Pistes Initie",
+    "medium": "Pistes Confirme",
+    "expert": "Pistes Expert",
+    "elite": "Pistes Elite"
+  },
+  "tabs": {
+    "map": "Carte des Pistes",
+    "list": "Liste des Pistes"
+  }
+}

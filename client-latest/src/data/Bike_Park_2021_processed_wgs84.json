@@ -362,6 +362,7 @@
       "properties": {
         "id": null,
         "Nom": "Funky Tufs",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Confirme",
         "Colour": "red",
@@ -851,6 +852,7 @@
       "properties": {
         "id": null,
         "Nom": "Gypsy",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Confirme",
         "Colour": "red",
@@ -1287,6 +1289,7 @@
       "properties": {
         "id": null,
         "Nom": "Kamasutrail",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Expert",
         "Colour": "black",
@@ -1501,6 +1504,7 @@
       "properties": {
         "id": null,
         "Nom": "Black Metal",
+        "slug": "black-metal",
         "Type": "DH",
         "Difficulté": "Expert",
         "Colour": "black",
@@ -1863,6 +1867,7 @@
       "properties": {
         "id": null,
         "Nom": "Borsattack",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Initie",
         "Colour": "blue",
@@ -2524,6 +2529,7 @@
       "properties": {
         "id": null,
         "Nom": "Wild 10 Nez",
+        "slug": "",
         "Type": "AM",
         "Difficulté": "Expert",
         "Colour": "black",
@@ -2748,6 +2754,7 @@
       "properties": {
         "id": null,
         "Nom": "Fresse Tagada",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Confirme",
         "Colour": "red",
@@ -2877,6 +2884,7 @@
       "properties": {
         "id": null,
         "Nom": "Scarefresse",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Elite",
         "Colour": "double-black",
@@ -3257,6 +3265,7 @@
       "properties": {
         "id": null,
         "Nom": "Eziride",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Initie",
         "Colour": "blue",
@@ -3798,6 +3807,7 @@
       "properties": {
         "id": null,
         "Nom": "Palaf",
+        "slug": "",
         "Type": "AM",
         "Difficulté": "Confirme",
         "Colour": "red",
@@ -4072,6 +4082,7 @@
       "properties": {
         "id": null,
         "Nom": "Forest Bump",
+        "slug": "",
         "Type": "AM",
         "Difficulté": "Expert",
         "Colour": "black",
@@ -4215,6 +4226,7 @@
       "properties": {
         "id": null,
         "Nom": "Salon de la Vache",
+        "slug": "",
         "Type": "AM",
         "Difficulté": "Expert",
         "Colour": "black",
@@ -4389,6 +4401,7 @@
       "properties": {
         "id": null,
         "Nom": "Conduite Forcee",
+        "slug": "",
         "Type": "AM",
         "Difficulté": "Expert",
         "Colour": "black",
@@ -5143,6 +5156,7 @@
       "properties": {
         "id": null,
         "Nom": "Wonderboisses",
+        "slug": "",
         "Type": "AM",
         "Difficulté": "Initie",
         "Colour": "blue",
@@ -5821,6 +5835,7 @@
       "properties": {
         "id": null,
         "Nom": "Chardon Up",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Confirme",
         "Colour": "yellow",
@@ -5999,6 +6014,7 @@
       "properties": {
         "id": null,
         "Nom": "Moustache",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Expert",
         "Colour": "black",
@@ -6194,6 +6210,7 @@
       "properties": {
         "id": null,
         "Nom": "Bolinette",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Debutant",
         "Colour": "green",
@@ -6827,6 +6844,7 @@
       "properties": {
         "id": null,
         "Nom": "Red Hot",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Confirme",
         "Colour": "red",
@@ -7911,6 +7929,7 @@
       "properties": {
         "id": null,
         "Nom": "Smoothie",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Debutant",
         "Colour": "green",
@@ -8600,6 +8619,7 @@
       "properties": {
         "id": null,
         "Nom": "Rocky Trail",
+        "slug": "",
         "Type": "AM",
         "Difficulté": "Confirme",
         "Colour": "red",
@@ -9473,6 +9493,7 @@
       "properties": {
         "id": null,
         "Nom": "Gunpowder",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Confirme",
         "Colour": "red",
@@ -10117,6 +10138,7 @@
       "properties": {
         "id": null,
         "Nom": "Kangooride",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Initie",
         "Colour": "blue",
@@ -11011,6 +11033,7 @@
       "properties": {
         "id": null,
         "Nom": "Jump Around",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Initie",
         "Colour": "blue",
@@ -11399,6 +11422,7 @@
       "properties": {
         "id": null,
         "Nom": "Tarantaise Airline",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Initie",
         "Colour": "blue",
@@ -11915,6 +11939,7 @@
       "properties": {
         "id": null,
         "Nom": "Tarte a Lognan",
+        "slug": "",
         "Type": "DH",
         "Difficulté": "Initie",
         "Colour": "blue",
@@ -11955,6 +11980,7 @@
       "properties": {
         "id": null,
         "Nom": "Cow Lanta",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Initie",
         "Colour": "blue",
@@ -12135,6 +12161,7 @@
       "properties": {
         "id": null,
         "Nom": "Eziride",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Debutant",
         "Colour": "yellow",
@@ -12274,6 +12301,7 @@
       "properties": {
         "id": null,
         "Nom": "Cow Lanta",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Initie",
         "Colour": "yellow",
@@ -12687,6 +12715,7 @@
       "properties": {
         "id": null,
         "Nom": "Cow Lanta",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Initie",
         "Colour": "yellow",
@@ -12805,6 +12834,7 @@
       "properties": {
         "id": null,
         "Nom": "Cow Lanta",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Initie",
         "Colour": "yellow",
@@ -12888,6 +12918,7 @@
       "properties": {
         "id": null,
         "Nom": "Cow Lanta",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Initie",
         "Colour": "yellow",
@@ -13301,6 +13332,7 @@
       "properties": {
         "id": null,
         "Nom": "GaraTfresse",
+        "slug": "",
         "Type": "VAE",
         "Difficulté": "Initie",
         "Colour": "yellow",

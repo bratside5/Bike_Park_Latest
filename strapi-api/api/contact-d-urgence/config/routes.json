@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contact-d-urgence",
+      "handler": "contact-d-urgence.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/contact-d-urgence",
+      "handler": "contact-d-urgence.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/contact-d-urgence",
+      "handler": "contact-d-urgence.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

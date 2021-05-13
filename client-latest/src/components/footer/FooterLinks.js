@@ -6,7 +6,7 @@ const FooterLinks = () => {
     <>
       <div className="flex-col items-center justify-end text-right w-full h-auto">
         <div className="w-full">
-          <Link href="/privacy-policy">
+          <Link href="/gdpr">
             <a className="">Privacy Policy</a>
           </Link>
         </div>

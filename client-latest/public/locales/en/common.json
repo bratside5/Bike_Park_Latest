@@ -1,0 +1,43 @@
+{
+  "homepage": "Home",
+  "page_title": "Trails Info",
+  "language": "EN",
+  "homepage-content": {
+    "homepage": "Home",
+    "language": "EN"
+  },
+  "trail-info": {
+    "trail": "Trail",
+    "positive_incline": "Positive Vertical",
+    "negative_incline": "Negative Vertical",
+    "difficulty": "Difficulty",
+    "length": "Length",
+    "colour": "Colour"
+  },
+  "buttons": {
+    "go": "Go to"
+  },
+  "contact": {
+    "title": "Emergency Contact"
+  },
+  "menu": {
+    "home": "Home",
+    "info": "Info & Opening",
+    "rules": "Bike Park Rules",
+    "contact": "Emergency Contact",
+    "theme": "Change",
+    "language": "Change"
+  },
+  "select": {
+    "all-trails": "All Trails",
+    "beginner": "Beginner Trails",
+    "easy": "Easy Trails",
+    "medium": "Medium Trails",
+    "expert": "Expert Trails",
+    "elite": "Elite Level Trails"
+  },
+  "tabs": {
+    "map": "Trail Map",
+    "list": "Trail List"
+  }
+}
