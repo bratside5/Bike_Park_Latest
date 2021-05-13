@@ -205,23 +205,26 @@ export const Map = ({ trailData, category, setCategory }) => {
   return (
     <>
       <div
-        ref={filterButton}
-        className="px-3 py-3 flex items-center justify-between bg-gray-100"
-      >
-        <select
-          id="difficultyLevelFilter"
-          name="difficultyLevelFilter"
-          className=" border border-gray-400 rounded p-1"
-        >
-          <option value="">Tous les Pistes</option>
-        </select>
-      </div>
-
-      <div
         id="map"
         ref={mapContainer}
         style={{ width: "100%", height: "100vh" }}
-      ></div>
+      >
+        {" "}
+        <div className=" mapboxgl-control-container text-lg p-3">
+          <div className="mapboxgl-ctrl-top-left">
+            <div className="mapboxgl-ctrl mapboxgl-ctrl-group">
+              <select
+                id="difficultyLevelFilter"
+                name="difficultyLevelFilter"
+                ref={filterButton}
+                className="overlay  rounded border-gray-700 shadow-lg"
+              >
+                <option value="">Tous les Pistes</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

@@ -17,21 +17,9 @@ a {
 
 .overlay {
   position: absolute;
-  top: 100px;
+  top: 25px;
   left: 10px;
   z-index: 1;
-}
-
-.overlay button {
-  font: 600 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-  background-color: #3386c0;
-  color: #fff;
-  display: inline-block;
-  margin: 0;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 3px;
 }
 
 .overlay button:hover {
