@@ -6,7 +6,7 @@ import slugify from "slugify";
 const { MAPBOX_TOKEN } = process.env;
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
-export const Map = ({ trailData, category, setCategory }) => {
+const Map = ({ trailData, category, setCategory }) => {
   const [categoryMenu, setCategoryMenu] = useState(true);
   const mapContainer = useRef();
   const filterButton = useRef();
@@ -87,7 +87,7 @@ export const Map = ({ trailData, category, setCategory }) => {
 
             "#fff",
           ],
-          "line-width": 6,
+          "line-width": 12,
         },
       });
 
@@ -100,12 +100,7 @@ export const Map = ({ trailData, category, setCategory }) => {
           "text-font": ["Open Sans Regular"],
           "text-field": "{Nom}",
           "text-size": 16,
-          "text-variable-anchor": ["top", "bottom", "left", "right"],
-          "text-radial-offset": 0.5,
-          "text-justify": "auto",
-
-          "symbol-spacing": 500,
-          "text-allow-overlap": true,
+          "symbol-spacing": 50,
         },
       });
 
@@ -136,9 +131,9 @@ export const Map = ({ trailData, category, setCategory }) => {
         slug = e.features[0].properties.Nom.toString();
         const url = slugify(slug, { lower: true, strict: true });
         console.log(`Slug is ${url}`);
-        map.flyTo({
-          center: e.lngLat,
-        });
+        // map.flyTo({
+        //   center: e.lngLat,
+        // });
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(
@@ -157,11 +152,11 @@ export const Map = ({ trailData, category, setCategory }) => {
             <p class="text-lg">Secteur: ${e.features[0].properties.Secteur}</p>
             </div>
             <div class="flex items-center justify-center pt-3">
+            <a href="trails/${url}" class="w-full h-full">
             <button class="bg-gray-200 w-32 h-10 rounded">
-            <a href="trails/${url}" class="">
             Go
-            </a>
             </button>
+            </a>
             </div>
             </div>
             `
