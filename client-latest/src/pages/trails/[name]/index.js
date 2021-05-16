@@ -5,6 +5,8 @@ import Loading from "@/components/loading";
 import SingleStats from "@/components/single-trail/single-stats";
 import PageTitle from "@/components/page-title";
 import NextImage from "@/components/image";
+import ImageSlider from "@/components/single-trail/image-slider";
+import YouTubePlayer from "@/components/single-trail/youtube";
 
 const DynamicComponentWithCustomLoading = dynamic(
   () => import("@/components/single-trail/single-map"),
@@ -12,37 +14,54 @@ const DynamicComponentWithCustomLoading = dynamic(
 );
 
 const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
-  const slug = data[0].title;
-  console.log(slug, data, geoJsonFullData, geoJsonProperties);
+  const [trailLength, setTrailLength] = useState("");
 
-  const [geoJsonCoords, setGeoJsonCoords] = useState(
-    geoJsonFullData.features.filter((data) => data.properties.Nom === slug)
-  );
-
-  if (data.length > 0) {
+  if (data[0] !== undefined) {
     const {
       title,
-      description,
-      access,
+      description_en,
+      access_en,
+      description_fr,
+      access_fr,
       image_principale: { url, width, height },
+      galerie_images,
     } = data[0];
+    const slug = data[0].title;
+
+    const [geoJsonCoords, setGeoJsonCoords] = useState(
+      geoJsonFullData.features.filter((data) => data.properties.Nom === slug)
+    );
 
     return (
       <>
         {geoJsonCoords && geoJsonCoords !== [] ? (
           <>
-            <DynamicComponentWithCustomLoading geoJsonCoords={geoJsonCoords} />
+            <DynamicComponentWithCustomLoading
+              geoJsonCoords={geoJsonCoords}
+              title={title}
+              setTrailLength={setTrailLength}
+            />
             <PageTitle title={title} />
-            <SingleStats />
+            <SingleStats
+              trailLength={trailLength}
+              geoJsonCoords={geoJsonCoords}
+            />
             <div className="flex-col items-center justify-center w-full h-auto px-6">
-              <h2 className="text-center py-3 text-2xl">Description</h2>
-              <p className="text-center">{description}</p>
-            </div>
-            <div className="flex-col items-center justify-center w-full h-auto px-6">
-              <h2 className="text-center py-3 text-2xl">Access</h2>
-              <p className="text-center">{access}</p>
+              <h2 className="text-center py-3 text-3xl mb-2">Description</h2>
+              <p className="text-center mb-3">{description_fr}</p>
             </div>
             <NextImage url={url} width={width} height={height} />
+            <div className="flex-col items-center justify-center w-full h-auto px-6">
+              <h2 className="text-center py-3 text-3xl mb-2">Access</h2>
+              <p className="text-center mb-3">{access_fr}</p>
+            </div>
+            {galerie_images &&
+              galerie_images.map((data, index) => (
+                <ImageSlider key={data.id} data={data} index={index} />
+              ))}
+            <div className="my-12 mx-auto w-full h-full">
+              <YouTubePlayer />
+            </div>
           </>
         ) : (
           <>
@@ -54,8 +73,9 @@ const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
   }
 
   return (
-    <div className="flex h-screen w-auto justify-center items-center">
-      Not Found...
+    <div className="flex h-screen w-auto justify-center items-center text-center">
+      Not Found... <br /> This Trail Doesnt Exist In Strapi Yet... <br /> Please
+      Add It
     </div>
   );
 };

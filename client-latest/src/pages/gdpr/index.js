@@ -2,8 +2,9 @@ import { useState } from "react";
 import RenderMarkDown from "@/components/md-article";
 import { fetchAPI } from "@/utils/api";
 import PageTitle from "@/components/page-title";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const index = ({ data }) => {
+const index = ({ data, locale }) => {
   const [rgpdData, setRgpdData] = useState([data]);
 
   if (rgpdData.length > 0) {
@@ -21,19 +22,27 @@ const index = ({ data }) => {
     </div>
   );
 };
-export const getServerSideProps = async () => {
-  const data = await fetchAPI(`/rgpd`);
-  if (!data) {
-    console.log("empty Data");
+export const getServerSideProps = async ({ locale }) => {
+  if (locale === "en") {
+    const data = await fetchAPI(`/rgpd?_locale=en`);
     return {
-      notFound: true,
+      props: {
+        ...(await serverSideTranslations(locale, ["common"])),
+        data,
+        locale,
+      },
+    };
+  } else {
+    const data = await fetchAPI(`/rgpd`);
+    console.log(locale);
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, ["common"])),
+        data,
+        locale,
+      },
     };
   }
-  return {
-    props: {
-      data,
-    },
-  };
 };
 
 export default index;

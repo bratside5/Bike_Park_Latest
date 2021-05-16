@@ -6,7 +6,7 @@ const RenderMarkDown = ({ article }) => {
   return (
     <>
       <div className="w-full h-auto flex justify-center">
-        <div className="text-center my-3">
+        <div className="text-center my-3 px-6">
           <article className="prose lg:prose-lg">
             <ReactMarkdown>{article}</ReactMarkdown>
           </article>

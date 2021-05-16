@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
 import Image from "next/image";
+import LanguageSwitch from "./LanguageSwitch";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -169,6 +170,11 @@ function Nav() {
                     Emergency Contact
                   </a>
                 </Link>
+              </div>
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <LanguageSwitch />
+                </div>
               </div>
             </div>
           )}

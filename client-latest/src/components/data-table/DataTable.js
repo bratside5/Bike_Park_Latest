@@ -1,16 +1,27 @@
+import Link from "next/link";
 import React, { useState, useMemo } from "react";
 import { useTable } from "react-table";
+import slugify from "slugify";
 
 const DataTable = ({ geoJson }) => {
   const [geoData, setGeoData] = useState([geoJson]);
-
   const mapped = geoData[0].features.map((data) => {
     return data.properties;
   });
 
+  // console.log(geoData);
+  // const getSlugs = geoData[0].features.map((data) => {
+  //   return data.properties.Nom;
+  // });
+  // console.log(getSlugs);
+  // let slug;
+  // slug = getSlugs;
+  // const url = slugify(slug, { lower: true, strict: true });
+  // console.log(`Slug is ${url}`);
+
   const memoizedGeoData = React.useMemo(() => mapped, []);
 
-  console.log(memoizedGeoData);
+  // console.log(memoizedGeoData);
 
   const columns = useMemo(
     () => [
@@ -30,6 +41,7 @@ const DataTable = ({ geoJson }) => {
         Header: "Secteur",
         accessor: "Secteur",
       },
+
       //   {
       //     Header: "Colour",
       //     accessor: "Colour",

@@ -1,5 +1,5 @@
-// import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-// import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import { useEffect, useState } from "react";
 import { fetchAPI } from "@/utils/api";
 import PageTitle from "@/components/page-title";
@@ -26,22 +26,27 @@ const RulesPage = ({ data }) => {
   }
 };
 
-export const getStaticProps = async ({ locale }) => {
-  const data = await fetchAPI(`/rules`);
-
-  if (!data) {
-    console.log("empty Data");
+export const getServerSideProps = async ({ locale }) => {
+  if (locale === "en") {
+    const data = await fetchAPI(`/rules?_locale=en`);
     return {
-      notFound: true,
+      props: {
+        ...(await serverSideTranslations(locale, ["common"])),
+        data,
+        locale,
+      },
+    };
+  } else {
+    const data = await fetchAPI(`/rules`);
+    console.log(locale);
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, ["common"])),
+        data,
+        locale,
+      },
     };
   }
-
-  return {
-    props: {
-      data,
-      // ...(await serverSideTranslations(locale, ["common", "trail-info"])),
-    },
-  };
 };
 
 export default RulesPage;

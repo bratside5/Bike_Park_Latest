@@ -6,11 +6,12 @@ import * as turf from "@turf/turf";
 const { MAPBOX_TOKEN } = process.env;
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
-const SingleMap = ({ geoJsonCoords }) => {
+const SingleMap = ({ geoJsonCoords, title, setTrailLength }) => {
   const mapContainer = useRef();
   const flyStartButton = useRef();
   const flyEndButton = useRef();
   console.log(geoJsonCoords);
+  console.log(title);
 
   const makeValidGeoJson = {
     type: "FeatureCollection",
@@ -20,22 +21,15 @@ const SingleMap = ({ geoJsonCoords }) => {
   const line = makeValidGeoJson;
   const lineLength = turf.length(line, { units: "meters" });
   const formatLength = `${lineLength.toString().slice(0, 6)}m`;
-  console.log(formatLength);
 
   const getCenter = makeValidGeoJson;
   const center = turf.center(getCenter);
-
-  const flattenGeojson = makeValidGeoJson;
-  const multiGeometry = turf.multiPolygon(
-    flattenGeojson.features[0].geometry.coordinates[0]
-  );
-  const flatten = turf.flatten(multiGeometry);
-  console.log(flatten);
 
   const getStartEndCoords = makeValidGeoJson;
   const getLength = getStartEndCoords.features[0].geometry.coordinates.length;
   const start = getStartEndCoords.features[0].geometry.coordinates[0];
   const end = getStartEndCoords.features[0].geometry.coordinates[getLength - 1];
+
   const makeValidGeoJsonStartEnd = {
     type: "FeatureCollection",
     features: [
@@ -56,9 +50,9 @@ const SingleMap = ({ geoJsonCoords }) => {
       },
     ],
   };
-  console.log(makeValidGeoJsonStartEnd);
 
   useEffect(() => {
+    setTrailLength(formatLength);
     var bounds = [
       [6.82813, 45.398812], // Southwest coordinates
       [6.953635, 45.543389], // Northeast coordinates
@@ -67,10 +61,10 @@ const SingleMap = ({ geoJsonCoords }) => {
       container: "map",
       style: "mapbox://styles/mapbox/satellite-streets-v11?optimize=true",
       center: center.geometry.coordinates,
-      zoom: 14,
+      zoom: 13,
       pitch: 0,
       //   bearing: -45,
-      maxBounds: bounds,
+      // maxBounds: bounds,
     });
 
     map.on("load", () => {
@@ -91,9 +85,65 @@ const SingleMap = ({ geoJsonCoords }) => {
           "sky-atmosphere-sun-intensity": 15,
         },
       });
+
+      map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true,
+          },
+          trackUserLocation: true,
+        })
+      );
+
+      map.addSource("start-point", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: start,
+              },
+            },
+          ],
+        },
+      });
+
+      map.addSource("end-point", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: end,
+              },
+            },
+          ],
+        },
+      });
+
       map.addSource("route", {
         type: "geojson",
         data: makeValidGeoJson,
+      });
+
+      map.addLayer({
+        id: "stroke-layer",
+        type: "line",
+        source: "route",
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#fff",
+          "line-width": 12,
+        },
       });
 
       map.addLayer({
@@ -123,17 +173,9 @@ const SingleMap = ({ geoJsonCoords }) => {
 
             "#fff",
           ],
-          "line-width": 10,
+          "line-width": 9,
         },
       });
-
-      map.loadImage(
-        "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
-        function (error, image) {
-          if (error) throw error;
-          map.addImage("custom-marker", image);
-        }
-      );
 
       map.addLayer({
         id: "symbols",
@@ -145,15 +187,42 @@ const SingleMap = ({ geoJsonCoords }) => {
           "text-field": "{Nom}",
           "text-size": 14,
           "symbol-spacing": 50,
+          "text-anchor": "center",
+          "text-justify": "center",
+        },
+        paint: {
+          "text-color": "#fff",
         },
       });
-      map.addControl(
-        new mapboxgl.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true,
-          },
-          trackUserLocation: true,
-        })
+
+      map.addLayer({
+        id: "marker-start",
+        type: "symbol",
+        source: "start-point",
+        layout: {
+          "icon-image": "custom-marker",
+          "icon-size": 1,
+          "icon-anchor": "bottom",
+        },
+      });
+
+      map.addLayer({
+        id: "marker-end",
+        type: "symbol",
+        source: "end-point",
+        layout: {
+          "icon-image": "custom-marker",
+          "icon-size": 1,
+          "icon-anchor": "bottom",
+        },
+      });
+
+      map.loadImage(
+        "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
+        function (error, image) {
+          if (error) throw error;
+          map.addImage("custom-marker", image);
+        }
       );
 
       const flyToStart = document
@@ -161,8 +230,10 @@ const SingleMap = ({ geoJsonCoords }) => {
         .addEventListener("click", function () {
           const isAtStart = false;
           const target = isAtStart ? end : start;
+
           map.flyTo({
             center: start,
+            around: start,
             zoom: 16,
             speed: 0.2,
             curve: 3,
@@ -172,6 +243,10 @@ const SingleMap = ({ geoJsonCoords }) => {
               return t;
             },
             essential: true,
+          });
+
+          map.on("moveend", function () {
+            console.log("A moveend event occurred.");
           });
         });
       const flyToEnd = document
@@ -205,14 +280,14 @@ const SingleMap = ({ geoJsonCoords }) => {
       <section className="h-auto w-full flex items-center justify-evenly py-3 px-3 bg-gray-100">
         {" "}
         <button
-          className="border border-gray-500 bg-blue-500 text-gray-50 rounded px-6 py-1"
+          className="border border-gray-500 mr-3 bg-blue-500 text-gray-50 rounded px-6 py-1"
           id="flyStart"
           ref={flyStartButton}
         >
           Aller au point de départ
         </button>
         <button
-          className="border border-gray-500 bg-blue-500 text-gray-50 rounded px-6 py-1"
+          className="border border-gray-500 ml-3 bg-blue-500 text-gray-50 rounded px-6 py-1"
           id="flyEnd"
           ref={flyEndButton}
         >

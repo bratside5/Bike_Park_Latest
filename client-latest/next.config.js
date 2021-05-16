@@ -1,3 +1,5 @@
+const { i18n } = require("./next-i18next.config");
+
 module.exports = {
   env: {
     MAPBOX_TOKEN: process.env.MAPBOX_TOKEN,
@@ -8,8 +10,5 @@ module.exports = {
   images: {
     domains: ["bikeparktignes.s3.eu-west-3.amazonaws.com"],
   },
-  i18n: {
-    locales: ["en", "fr"],
-    defaultLocale: "fr",
-  },
+  i18n,
 };

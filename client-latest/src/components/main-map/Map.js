@@ -44,7 +44,7 @@ const Map = ({ trailData, category, setCategory }) => {
         maxZoom: 15,
         tolerance: 0,
       });
-      map.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+      map.setTerrain({ source: "mapbox-dem", exaggeration: 1 });
       map.addLayer({
         id: "sky",
         type: "sky",
@@ -59,6 +59,20 @@ const Map = ({ trailData, category, setCategory }) => {
         data: trailData,
       });
       map.addControl(new mapboxgl.NavigationControl());
+
+      map.addLayer({
+        id: "stroke-layer",
+        type: "line",
+        source: "route",
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#fff",
+          "line-width": 12,
+        },
+      });
 
       map.addLayer({
         id: "route-layer",
@@ -87,7 +101,7 @@ const Map = ({ trailData, category, setCategory }) => {
 
             "#fff",
           ],
-          "line-width": 12,
+          "line-width": 9,
         },
       });
 
@@ -99,8 +113,13 @@ const Map = ({ trailData, category, setCategory }) => {
           "symbol-placement": "line-center",
           "text-font": ["Open Sans Regular"],
           "text-field": "{Nom}",
-          "text-size": 16,
+          "text-size": 14,
           "symbol-spacing": 50,
+          "text-anchor": "center",
+          "text-justify": "center",
+        },
+        paint: {
+          "text-color": "#fff",
         },
       });
 
@@ -116,13 +135,13 @@ const Map = ({ trailData, category, setCategory }) => {
       console.log(map.getLayer("route-layer"));
 
       // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
-      map.on("mouseenter", "route-layer", function () {
-        map.getCanvas().style.cursor = "pointer";
+      map.on("mouseenter", "route-layer", function (e) {
+        map.getCanvas(e).style.cursor = "pointer";
       });
 
       // Change it back to a pointer when it leaves.
-      map.on("mouseleave", "route-layer", function () {
-        map.getCanvas().style.cursor = "";
+      map.on("mouseleave", "route-layer", function (e) {
+        map.getCanvas(e).style.cursor = "";
       });
 
       //   onClick event to handle popup
@@ -131,9 +150,9 @@ const Map = ({ trailData, category, setCategory }) => {
         slug = e.features[0].properties.Nom.toString();
         const url = slugify(slug, { lower: true, strict: true });
         console.log(`Slug is ${url}`);
-        // map.flyTo({
-        //   center: e.lngLat,
-        // });
+        map.flyTo({
+          center: e.lngLat,
+        });
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
           .setHTML(
