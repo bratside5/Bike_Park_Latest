@@ -86,7 +86,9 @@ const Map = ({ trailData, category, setCategory }) => {
           "line-color": "#fff",
           "line-opacity": 0.01,
           "line-width": 25,
-          "line-offset": 50,
+          // "line-offset": -50,
+          "line-translate": [0, 0],
+          "line-translate-anchor": "map",
         },
       });
 
@@ -151,13 +153,17 @@ const Map = ({ trailData, category, setCategory }) => {
       console.log(map.getLayer("route-layer"));
 
       // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
-      map.on("mouseenter", "route-layer", function (e) {
+      map.on("mouseenter", "click-layer", function (e) {
         map.getCanvas(e).style.cursor = "pointer";
+        map.setPaintProperty("click-layer", "line-opacity", 0.8);
+        map.setPaintProperty("click-layer", "line-color", "#fff");
       });
 
       // Change it back to a pointer when it leaves.
-      map.on("mouseleave", "route-layer", function (e) {
+      map.on("mouseleave", "click-layer", function (e) {
         map.getCanvas(e).style.cursor = "";
+        map.getCanvas(e).style.cursor = "pointer";
+        map.setPaintProperty("click-layer", "line-opacity", 0.01);
       });
 
       //   onClick event to handle popup
