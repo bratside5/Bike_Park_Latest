@@ -76,7 +76,7 @@ class MyDocument extends Document {
             content="https://yourdomain.com/static/icons/apple-touch-icon.png"
           />
         </Head>
-        <body className="dark:bg-gray-900 bg-gray-50">
+        <body className="">
           <Main />
           <NextScript />
         </body>

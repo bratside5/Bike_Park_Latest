@@ -75,6 +75,22 @@ const Map = ({ trailData, category, setCategory }) => {
       });
 
       map.addLayer({
+        id: "click-layer",
+        type: "line",
+        source: "route",
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#fff",
+          "line-opacity": 0.01,
+          "line-width": 25,
+          "line-offset": 50,
+        },
+      });
+
+      map.addLayer({
         id: "route-layer",
         type: "line",
         source: "route",
@@ -145,7 +161,7 @@ const Map = ({ trailData, category, setCategory }) => {
       });
 
       //   onClick event to handle popup
-      map.on("click", "route-layer", function (e) {
+      map.on("click", "click-layer", function (e) {
         let slug;
         slug = e.features[0].properties.Nom.toString();
         const url = slugify(slug, { lower: true, strict: true });
