@@ -1,20 +1,19 @@
 import React from "react";
 import YouTube from "react-youtube";
 
-const YouTubePlayer = () => {
+const YouTubePlayer = ({ lien_youtube }) => {
   const opts = {
-    height: "480px",
-    width: "auto",
+    // height: "100%",
+    // width: "100%",
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+      autoplay: 0,
     },
   };
 
   return (
     <>
-      <div className="flex justify-center items-center shadow">
-        <YouTube videoId="2g811Eo7K8U" opts={opts} />
+      <div className="flex justify-center items-center shadow p-12">
+        <YouTube videoId={lien_youtube} opts={opts} />
       </div>
     </>
   );

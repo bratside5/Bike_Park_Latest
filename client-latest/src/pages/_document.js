@@ -58,22 +58,22 @@ class MyDocument extends Document {
           />
 
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content="https://yourdomain.com" />
+          <meta name="twitter:url" content="https://bikeparktignes.com" />
           <meta name="twitter:title" content="Tignes Bike Park" />
           <meta name="twitter:description" content="Tignes Bike Park App" />
           <meta
             name="twitter:image"
-            content="https://yourdomain.com/static/icons/android-chrome-192x192.png"
+            content="https://bikeparktignes.com/static/icons/android-chrome-192x192.png"
           />
           <meta name="twitter:creator" content="@bratside5" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Tignes Bike Park" />
           <meta property="og:description" content="Tignes Bike Park App" />
           <meta property="og:site_name" content="Tignes Bike Park" />
-          <meta property="og:url" content="https://yourdomain.com" />
+          <meta property="og:url" content="https://bikeparktignes.com" />
           <meta
             property="og:image"
-            content="https://yourdomain.com/static/icons/apple-touch-icon.png"
+            content="https://bikeparktignes.com/static/icons/apple-touch-icon.png"
           />
         </Head>
         <body className="">

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { fetchAPI, fetchLocalApi } from "@/utils/api";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import Loading from "@/components/loading";
 import SingleStats from "@/components/single-trail/single-stats";
 import PageTitle from "@/components/page-title";
@@ -15,6 +17,8 @@ const DynamicComponentWithCustomLoading = dynamic(
 
 const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
   const [trailLength, setTrailLength] = useState("");
+  const { t } = useTranslation("common");
+  const router = useRouter();
 
   if (data[0] !== undefined) {
     const {
@@ -25,12 +29,16 @@ const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
       access_fr,
       image_principale: { url, width, height },
       galerie_images,
+      lien_youtube,
     } = data[0];
     const slug = data[0].title;
 
     const [geoJsonCoords, setGeoJsonCoords] = useState(
       geoJsonFullData.features.filter((data) => data.properties.Nom === slug)
     );
+
+    const getDescription = router.locale === "fr" ? access_fr : access_en;
+    const getAccess = router.locale === "fr" ? access_fr : access_en;
 
     return (
       <>
@@ -48,19 +56,19 @@ const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
             />
             <div className="flex-col items-center justify-center w-full h-auto px-6">
               <h2 className="text-center py-3 text-3xl mb-2">Description</h2>
-              <p className="text-center mb-3">{description_fr}</p>
+              <p className="text-center mb-3">{getDescription}</p>
             </div>
             <NextImage url={url} width={width} height={height} />
             <div className="flex-col items-center justify-center w-full h-auto px-6">
               <h2 className="text-center py-3 text-3xl mb-2">Access</h2>
-              <p className="text-center mb-3">{access_fr}</p>
+              <p className="text-center mb-3">{getAccess}</p>
             </div>
             {galerie_images &&
               galerie_images.map((data, index) => (
                 <ImageSlider key={data.id} data={data} index={index} />
               ))}
             <div className="my-12 mx-auto w-full h-full">
-              <YouTubePlayer />
+              <YouTubePlayer lien_youtube={lien_youtube} />
             </div>
           </>
         ) : (

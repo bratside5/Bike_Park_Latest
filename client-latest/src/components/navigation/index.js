@@ -63,13 +63,10 @@ function Nav() {
                 </div>
               </div>
               <div className="hidden md:block">
-                {/* <div className="ml-10 flex items-baseline space-x-4">
-                  <Link href="/contact">
-                    <a className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                      Emergency Contact
-                    </a>
-                  </Link>
-                </div> */}
+                <div className="ml-10 flex items-baseline space-x-4">
+                  <LanguageSwitch />
+                  {/* <a className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"> */}
+                </div>
               </div>
             </div>
             <div className="-mr-2 flex md:hidden">

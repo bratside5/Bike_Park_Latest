@@ -150,7 +150,7 @@ const Map = ({ trailData, category, setCategory }) => {
         })
       );
 
-      console.log(map.getLayer("route-layer"));
+      console.log(map.getLayer("click-layer"));
 
       // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
       map.on("mouseenter", "click-layer", function (e) {
@@ -162,7 +162,6 @@ const Map = ({ trailData, category, setCategory }) => {
       // Change it back to a pointer when it leaves.
       map.on("mouseleave", "click-layer", function (e) {
         map.getCanvas(e).style.cursor = "";
-        map.getCanvas(e).style.cursor = "pointer";
         map.setPaintProperty("click-layer", "line-opacity", 0.01);
       });
 

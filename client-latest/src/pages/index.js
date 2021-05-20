@@ -10,14 +10,11 @@ export default function Home({ locale }) {
 }
 
 export const getServerSideProps = async ({ locale }) => {
-  if (locale === "en") {
-    // const data = await fetchAPI(`/contact-d-urgence?_locale=en`);
-    return {
-      props: {
-        ...(await serverSideTranslations(locale, ["common"])),
-        // data,
-        locale,
-      },
-    };
-  }
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      data: null,
+      locale,
+    },
+  };
 };
