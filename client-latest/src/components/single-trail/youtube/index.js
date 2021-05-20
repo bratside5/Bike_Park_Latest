@@ -12,7 +12,7 @@ const YouTubePlayer = ({ lien_youtube }) => {
 
   return (
     <>
-      <div className="flex justify-center items-center shadow p-12">
+      <div className="flex justify-center items-center shadow p-12 max-w-screen-md w-1/2">
         <YouTube videoId={lien_youtube} opts={opts} />
       </div>
     </>
