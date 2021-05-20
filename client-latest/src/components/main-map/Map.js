@@ -70,7 +70,7 @@ const Map = ({ trailData, category, setCategory }) => {
         },
         paint: {
           "line-color": "#fff",
-          "line-width": 12,
+          "line-width": 10,
         },
       });
 
@@ -85,7 +85,7 @@ const Map = ({ trailData, category, setCategory }) => {
         paint: {
           "line-color": "#fff",
           "line-opacity": 0.01,
-          "line-width": 25,
+          "line-width": 12,
           // "line-offset": -50,
           "line-translate": [0, 0],
           "line-translate-anchor": "map",
@@ -119,7 +119,7 @@ const Map = ({ trailData, category, setCategory }) => {
 
             "#fff",
           ],
-          "line-width": 9,
+          "line-width": 6,
         },
       });
 
