@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navigation />
-      <main className="">{children}</main>
+      <main className="overflow-hidden">{children}</main>
       <Footer />
     </>
   );
