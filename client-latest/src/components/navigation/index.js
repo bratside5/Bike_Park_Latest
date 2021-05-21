@@ -158,7 +158,7 @@ function Nav() {
                   </a>
                 </Link>
               </div>
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div className="px-2 pt-2 pb-6 space-y-1 sm:px-3">
                 <Link href="/contact">
                   <a
                     onClick={() => setIsOpen(!isOpen)}
@@ -167,11 +167,6 @@ function Nav() {
                     Emergency Contact
                   </a>
                 </Link>
-              </div>
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <div className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                  <LanguageSwitch />
-                </div>
               </div>
             </div>
           )}
