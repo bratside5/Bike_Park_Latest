@@ -3,8 +3,8 @@ import Image from "next/image";
 const NextImage = ({ url, width, height }) => {
   return (
     <>
-      <div className="py-6 px-3">
-        <div className="w-full h-auto flex items-center justify-center rounded-lg shadow-lg border">
+      <div className="flex items-center justify-center py-3">
+        <div className="object-contain">
           <Image src={url} width={width} height={height} />
         </div>
       </div>

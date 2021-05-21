@@ -1,5 +1,5 @@
 import React from "react";
-import NextImage from "@/components/image";
+import Image from "next/image";
 
 const ImageSlider = ({ data, index }) => {
   console.log(data.url);
@@ -7,8 +7,10 @@ const ImageSlider = ({ data, index }) => {
 
   return (
     <>
-      <div className="border rounded shadow">
-        <NextImage url={url} width={width} height={height} />
+      <div className="flex items-center justify-center py-3 w-auto h-auto">
+        <div className="object-contain w-3/4">
+          <Image src={url} width={width} height={height} />
+        </div>
       </div>
     </>
   );
