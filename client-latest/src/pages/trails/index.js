@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import DataTable from "@/components/data-table/DataTable";
 import { fetchAPI, fetchLocalApi } from "@/utils/api";
 import SelectDifficulty from "@/components/data-table/SelectDifficulty";
@@ -41,6 +42,7 @@ export const getServerSideProps = async ({ locale }) => {
     props: {
       data,
       geoJson,
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 };

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { fetchAPI, fetchLocalApi } from "@/utils/api";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -95,7 +96,7 @@ const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
   );
 };
 
-export const getServerSideProps = async ({ params }) => {
+export const getServerSideProps = async ({ params, locale }) => {
   const data = await fetchAPI(`/descriptions-des-pistes/?slug=${params.name}`);
   const requestUrl = await fetchLocalApi(`/trail-payload/${params.name}`);
   const requestUrlFullPayload = await fetchLocalApi(`/trail-payload`);
@@ -112,6 +113,7 @@ export const getServerSideProps = async ({ params }) => {
       geoJsonProperties,
       geoJsonFullData,
       params,
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 };
