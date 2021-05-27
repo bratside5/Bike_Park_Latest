@@ -20,13 +20,19 @@ const index = ({ data, locale }) => {
     } = infoData[0];
     return (
       <>
-        <PageTitle title={title} />
-        <RenderMarkDown article={dernieres_informations} />
-        <RenderMarkDown article={infos_navette} />
-        <TimeTable heures={heures_navette} />
-        <RenderMarkDown article={infos_telesiege} />
-        <TimeTable heures={heures_telesiege} />
-        <RenderMarkDown article={texte_secondaire} />
+        <div className="px-12 mx-12">
+          <PageTitle title={title} />
+          <RenderMarkDown article={dernieres_informations} />
+          <div className="border border-gray-200 rounded shadow-lg mx-6 py-6 my-6">
+            <RenderMarkDown article={infos_navette} />
+            <TimeTable heures={heures_navette} />
+          </div>
+          <div className="border border-gray-200 rounded shadow-lg mx-6 py-6 my-6">
+            <RenderMarkDown article={infos_telesiege} />
+            <TimeTable heures={heures_telesiege} />
+          </div>
+          <RenderMarkDown article={texte_secondaire} />
+        </div>
       </>
     );
   }
