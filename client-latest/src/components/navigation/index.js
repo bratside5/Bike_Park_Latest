@@ -2,16 +2,18 @@ import React, { useState, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
 import Image from "next/image";
-import LanguageSwitch from "./LanguageSwitch";
+import { useTranslation, i18n } from "next-i18next";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation("common");
+
   const navBar = useRef();
   return (
     <>
       <nav className="bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-evenly h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Link href="/">
@@ -39,7 +41,7 @@ function Nav() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link href="/trails">
                     <a className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                      Trails
+                      {t("menu.trails")}
                     </a>
                   </Link>
                 </div>
@@ -48,7 +50,7 @@ function Nav() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link href="/infos">
                     <a className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                      Information
+                      {t("menu.info")}
                     </a>
                   </Link>
                 </div>
@@ -57,15 +59,9 @@ function Nav() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link href="/security">
                     <a className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                      Security
+                      {t("menu.rules")}
                     </a>
                   </Link>
-                </div>
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <LanguageSwitch />
-                  {/* <a className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"> */}
                 </div>
               </div>
             </div>
@@ -134,7 +130,7 @@ function Nav() {
                     onClick={() => setIsOpen(!isOpen)}
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Trails
+                    {t("menu.trails")}
                   </a>
                 </Link>
               </div>
@@ -144,7 +140,7 @@ function Nav() {
                     onClick={() => setIsOpen(!isOpen)}
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Information
+                    {t("menu.info")}
                   </a>
                 </Link>
               </div>
@@ -154,7 +150,7 @@ function Nav() {
                     onClick={() => setIsOpen(!isOpen)}
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Security
+                    {t("menu.rules")}
                   </a>
                 </Link>
               </div>
@@ -164,7 +160,7 @@ function Nav() {
                     onClick={() => setIsOpen(!isOpen)}
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Emergency Contact
+                    {t("menu.contact")}
                   </a>
                 </Link>
               </div>

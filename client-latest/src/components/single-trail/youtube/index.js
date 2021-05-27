@@ -12,8 +12,6 @@ const YouTubePlayer = ({ lien_youtube }) => {
   const isBreakpoint = useMediaQuery(768);
 
   const opts = {
-    // height: "100%",
-    // width: "100%",
     playerVars: {
       autoplay: 0,
     },

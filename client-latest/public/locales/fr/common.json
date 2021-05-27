@@ -26,7 +26,8 @@
     "rules": "Règles de Sécurité",
     "contact": "En Cas d'Urgence",
     "theme": "Change",
-    "language": "Change"
+    "language": "Change",
+    "trails": "Pistes"
   },
   "select": {
     "all-trails": "Voir Tous",

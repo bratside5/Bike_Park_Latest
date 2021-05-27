@@ -9,6 +9,7 @@ import PageTitle from "@/components/page-title";
 import NextImage from "@/components/image";
 import ImageSlider from "@/components/single-trail/image-slider";
 import YouTubePlayer from "@/components/single-trail/youtube";
+import { NextSeo } from "next-seo";
 
 const DynamicComponentWithCustomLoading = dynamic(
   () => import("@/components/single-trail/single-map"),
@@ -42,6 +43,11 @@ const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
 
     return (
       <>
+        <NextSeo
+          title={title}
+          description={description_fr}
+          canonical={`https://www.bikeparktignes.com/trails/${slug}`}
+        />
         {geoJsonCoords && geoJsonCoords !== [] ? (
           <>
             <DynamicComponentWithCustomLoading

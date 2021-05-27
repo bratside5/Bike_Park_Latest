@@ -26,7 +26,8 @@
     "rules": "Bike Park Rules",
     "contact": "Emergency Contact",
     "theme": "Change",
-    "language": "Change"
+    "language": "Change",
+    "trails": "Trails"
   },
   "select": {
     "all-trails": "All Trails",
