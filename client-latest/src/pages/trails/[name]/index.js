@@ -38,7 +38,8 @@ const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
       geoJsonFullData.features.filter((data) => data.properties.Nom === slug)
     );
 
-    const getDescription = router.locale === "fr" ? access_fr : access_en;
+    const getDescription =
+      router.locale === "fr" ? description_fr : description_en;
     const getAccess = router.locale === "fr" ? access_fr : access_en;
 
     return (

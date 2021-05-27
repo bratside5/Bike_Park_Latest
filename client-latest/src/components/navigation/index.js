@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
 import Image from "next/image";
-import { useTranslation, i18n } from "next-i18next";
+import { useTranslation } from "next-i18next";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ function Nav() {
     <>
       <nav className="bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-evenly h-16">
+          <div className="flex items-center justify-between md:justify-evenly h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Link href="/">

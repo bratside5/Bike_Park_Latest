@@ -31,7 +31,7 @@ const Map = ({ trailData, category, setCategory }) => {
       // clamp the rotation between 0 -360 degrees
       // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
 
-      map.rotateTo((timestamp / 100) % 360, { duration: 0 });
+      map.rotateTo((timestamp / 100) % 360, { duration: 2 });
       // Request the next frame of the animation.
       requestAnimationFrame(rotateCamera);
     }
@@ -85,10 +85,28 @@ const Map = ({ trailData, category, setCategory }) => {
         paint: {
           "line-color": "#fff",
           "line-opacity": 0.01,
-          "line-width": 12,
-          // "line-offset": -50,
+          "line-width": 36,
+          "line-offset": -2,
           "line-translate": [0, 0],
-          "line-translate-anchor": "map",
+          "line-translate-anchor": "viewport",
+        },
+      });
+
+      map.addLayer({
+        id: "hover-layer",
+        type: "line",
+        source: "route",
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#fff",
+          "line-opacity": 0.01,
+          "line-width": 14,
+          // "line-offset": -2,
+          // "line-translate": [0, 0],
+          // "line-translate-anchor": "map",
         },
       });
 
@@ -153,16 +171,16 @@ const Map = ({ trailData, category, setCategory }) => {
       console.log(map.getLayer("click-layer"));
 
       // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
-      map.on("mouseenter", "click-layer", function (e) {
+      map.on("mouseenter", "hover-layer", function (e) {
         map.getCanvas(e).style.cursor = "pointer";
-        map.setPaintProperty("click-layer", "line-opacity", 0.8);
-        map.setPaintProperty("click-layer", "line-color", "#fff");
+        map.setPaintProperty("hover-layer", "line-opacity", 0.8);
+        map.setPaintProperty("hover-layer", "line-color", "#fff");
       });
 
       // Change it back to a pointer when it leaves.
-      map.on("mouseleave", "click-layer", function (e) {
+      map.on("mouseleave", "hover-layer", function (e) {
         map.getCanvas(e).style.cursor = "";
-        map.setPaintProperty("click-layer", "line-opacity", 0.01);
+        map.setPaintProperty("hover-layer", "line-opacity", 0.01);
       });
 
       //   onClick event to handle popup

@@ -2,6 +2,7 @@ import React from "react";
 import NextImage from "@/components/image";
 import Link from "next/link";
 import slugify from "slugify";
+import router from "next/router";
 
 const Cards = ({ data }) => {
   const {
@@ -13,7 +14,10 @@ const Cards = ({ data }) => {
     image_principale: { url, width, height },
   } = data;
 
-  const excerpt_en = description_en.slice(0, 150);
+  const getDescription =
+    router.locale === "fr"
+      ? description_fr.slice(0, 150)
+      : description_en.slice(0, 150);
 
   let slug;
   slug = title;
@@ -40,7 +44,7 @@ const Cards = ({ data }) => {
               </div>
             </div>
             <div className="pb-12 px-6 text-center tracking-wide w-full">
-              <p className="text-gray-400 text-sm">{excerpt_en}...</p>
+              <p className="text-gray-400 text-sm">{getDescription}...</p>
             </div>
           </div>
         </a>
