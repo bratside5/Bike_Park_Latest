@@ -26,7 +26,7 @@ const TimeTable = ({ heures }) => {
 
   return (
     <>
-      <div className="xs:w-48 md:max-w-full text-xs text-center px-3 flex items-center justify-center">
+      <div className="xs:max-w-32 md:max-w-full text-xs text-center px-3 mx-1 flex items-center justify-center">
         <table
           {...getTableProps()}
           className="  bg-gray-100 rounded-lg  sm:shadow-lg my-5"
