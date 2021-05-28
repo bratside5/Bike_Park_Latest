@@ -18,6 +18,7 @@ const index = ({ data, locale }) => {
       infos_telesiege,
       heures_telesiege,
     } = infoData[0];
+
     return (
       <>
         <div className="">

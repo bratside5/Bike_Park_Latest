@@ -3,6 +3,7 @@ import { useTable } from "react-table";
 
 const TimeTable = ({ heures }) => {
   const [time, setTime] = useState(heures);
+  console.log(time);
 
   const memoizedTime = useMemo(() => time, []);
 
@@ -26,10 +27,10 @@ const TimeTable = ({ heures }) => {
 
   return (
     <>
-      <div className="xs:max-w-32 md:max-w-full text-xs text-center px-3 mx-1 flex items-center justify-center">
+      <div className="xs:max-w-24 md:max-w-full text-xs text-center px-3 mx-1 flex items-center justify-center">
         <table
           {...getTableProps()}
-          className="  bg-gray-100 rounded-lg  sm:shadow-lg my-5"
+          className="  bg-gray-100 rounded-lg  sm:shadow-lg my-5 xs:max-w-24 md:max-w-full"
         >
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -40,7 +41,7 @@ const TimeTable = ({ heures }) => {
                 {headerGroup.headers.map((column) => (
                   <th
                     {...column.getHeaderProps()}
-                    className="py-3 px-6 text-center"
+                    className="py-3 px-6 text-center text-xs"
                   >
                     {column.render("Header")}
                   </th>

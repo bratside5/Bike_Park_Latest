@@ -14,8 +14,8 @@ const Map = ({ trailData, category, setCategory }) => {
 
   useEffect(() => {
     var bounds = [
-      [6.82813, 45.398812], // Southwest coordinates
-      [6.953635, 45.543389], // Northeast coordinates
+      [6.708909, 45.213004], // Southwest coordinates
+      [7.288934, 45.725356], // Northeast coordinates
     ];
     const map = new mapboxgl.Map({
       container: "map",
