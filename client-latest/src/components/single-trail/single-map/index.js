@@ -173,7 +173,7 @@ const SingleMap = ({ geoJsonCoords, title, setTrailLength }) => {
 
             "#fff",
           ],
-          "line-width": 10,
+          "line-width": 4,
         },
       });
 
