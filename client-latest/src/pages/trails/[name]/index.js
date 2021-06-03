@@ -109,11 +109,11 @@ export const getServerSideProps = async ({ params, locale }) => {
   }
   return {
     props: {
+      ...(await serverSideTranslations(locale, ["common"])),
       data,
       geoJsonProperties,
       geoJsonFullData,
       params,
-      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 };
