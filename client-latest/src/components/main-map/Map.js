@@ -10,6 +10,7 @@ const Map = ({ trailData, category, setCategory }) => {
   const [categoryMenu, setCategoryMenu] = useState(true);
   const mapContainer = useRef();
   const filterButton = useRef();
+  const trailFilterButton = useRef();
   const popUp = useRef();
 
   useEffect(() => {
