@@ -10,7 +10,6 @@ const Map = ({ trailData, category, setCategory }) => {
   const [categoryMenu, setCategoryMenu] = useState(true);
   const mapContainer = useRef();
   const filterButton = useRef();
-  const trailFilterButton = useRef();
   const popUp = useRef();
 
   useEffect(() => {
@@ -254,29 +253,6 @@ const Map = ({ trailData, category, setCategory }) => {
         map.getSource("route").setData(newGeoJSON);
       };
     });
-
-    const trailLevelsArray = ["DH", "VAE", "AM"];
-
-    // const uniquePubTypes = Array.from(new Set(trailLevelsArray));
-    const filterElem = document.getElementById("trailLevelFilter");
-    trailLevelsArray.forEach((trailType) => {
-      const opt = document.createElement("option");
-      opt.value = trailType;
-      opt.innerText = trailType;
-      filterElem.appendChild(opt);
-    });
-    filterElem.onchange = () => {
-      const trailType = filterElem.value;
-      const newGeoJSON = { ...trailData };
-      if (trailType) {
-        newGeoJSON.features = trailData.features.filter(
-          (feature) => feature.properties.Type === trailType
-        );
-      } else {
-        newGeoJSON.features = [...trailData.features];
-      }
-      map.getSource("route").setData(newGeoJSON);
-    };
   }, []);
 
   return (
@@ -296,21 +272,7 @@ const Map = ({ trailData, category, setCategory }) => {
                 ref={filterButton}
                 className="overlay  rounded border-gray-700 shadow-lg"
               >
-                <option value="">Tout</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div className=" mapboxgl-control-container text-lg p-3">
-          <div className="mapboxgl-ctrl-top-middle">
-            <div className="mapboxgl-ctrl mapboxgl-ctrl-group pr-64">
-              <select
-                id="trailLevelFilter"
-                name="trailLevelFilter"
-                ref={trailFilterButton}
-                className="overlay  rounded border-gray-700 shadow-lg"
-              >
-                <option value="">Tout les Types</option>
+                <option value="">Tous les Pistes</option>
               </select>
             </div>
           </div>
