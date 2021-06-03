@@ -16,7 +16,7 @@ const index = ({ geoJson, data }) => {
       <NextSeo
         title={title}
         description="Tous les Pistes du VTT."
-        canonical="https://www.bikeparktignes.com/trails"
+        canonical="https://bikeparktignes.com/trails"
       />
       <PageTitle title={title} />
       <div className="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 px-4 py-3">

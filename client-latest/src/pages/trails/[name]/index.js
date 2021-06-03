@@ -48,7 +48,7 @@ const index = ({ data, params, geoJsonProperties, geoJsonFullData }) => {
         <NextSeo
           title={title}
           description={description_fr}
-          canonical={`https://www.bikeparktignes.com/trails/${slug}`}
+          canonical={`https://bikeparktignes.com/trails/${slug}`}
         />
         {geoJsonCoords && geoJsonCoords !== [] ? (
           <>
