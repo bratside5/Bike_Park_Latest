@@ -270,7 +270,7 @@ const Map = ({ trailData, category, setCategory }) => {
       const newGeoJSON = { ...trailData };
       if (trailType) {
         newGeoJSON.features = trailData.features.filter(
-          (feature) => feature.properties.Difficulté === trailType
+          (feature) => feature.properties.Type === trailType
         );
       } else {
         newGeoJSON.features = [...trailData.features];
@@ -303,7 +303,7 @@ const Map = ({ trailData, category, setCategory }) => {
         </div>
         <div className=" mapboxgl-control-container text-lg p-3">
           <div className="mapboxgl-ctrl-top-left">
-            <div className="mapboxgl-ctrl mapboxgl-ctrl-group">
+            <div className="mapboxgl-ctrl mapboxgl-ctrl-group mr-64">
               <select
                 id="trailLevelFilter"
                 name="trailLevelFilter"
