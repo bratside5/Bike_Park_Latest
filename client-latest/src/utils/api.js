@@ -12,7 +12,7 @@ export function getStrapiURL(path = "") {
 
 export async function fetchAPI(path) {
   const requestUrl = getStrapiURL(path);
-  const response = await fetch(requestUrl);
+  const response = await fetch(requestUrl, { mode: "no-cors" });
   const data = await response.json();
   return data;
 }
