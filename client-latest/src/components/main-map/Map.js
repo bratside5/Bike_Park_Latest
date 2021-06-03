@@ -302,8 +302,8 @@ const Map = ({ trailData, category, setCategory }) => {
           </div>
         </div>
         <div className=" mapboxgl-control-container text-lg p-3">
-          <div className="mapboxgl-ctrl-top-left">
-            <div className="mapboxgl-ctrl mapboxgl-ctrl-group mr-64">
+          <div className="mapboxgl-ctrl-top-middle">
+            <div className="mapboxgl-ctrl mapboxgl-ctrl-group pr-64">
               <select
                 id="trailLevelFilter"
                 name="trailLevelFilter"
