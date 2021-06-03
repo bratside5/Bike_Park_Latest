@@ -224,13 +224,7 @@ const Map = ({ trailData, category, setCategory }) => {
         console.log(e.lngLat);
       });
 
-      const difficultyLevelsArray = [
-        "Debutant",
-        "Initie",
-        "Confirme",
-        "Expert",
-        "Elite",
-      ];
+      const difficultyLevelsArray = ["DH", "VAE", "AM"];
 
       // const uniquePubTypes = Array.from(new Set(difficultyLevelsArray));
       const filterElem = document.getElementById("difficultyLevelFilter");
@@ -245,7 +239,7 @@ const Map = ({ trailData, category, setCategory }) => {
         const newGeoJSON = { ...trailData };
         if (difficultyType) {
           newGeoJSON.features = trailData.features.filter(
-            (feature) => feature.properties.Difficulté === difficultyType
+            (feature) => feature.properties.Type === difficultyType
           );
         } else {
           newGeoJSON.features = [...trailData.features];
@@ -272,7 +266,7 @@ const Map = ({ trailData, category, setCategory }) => {
                 ref={filterButton}
                 className="overlay  rounded border-gray-700 shadow-lg"
               >
-                <option value="">Tous les Pistes</option>
+                <option value="">Tout les Types</option>
               </select>
             </div>
           </div>
