@@ -103,7 +103,7 @@ const Map = ({ trailData, category, setCategory }) => {
         paint: {
           "line-color": "#fff",
           "line-opacity": 0.01,
-          "line-width": 14,
+          "line-width": 10,
           // "line-offset": -2,
           // "line-translate": [0, 0],
           // "line-translate-anchor": "map",
@@ -253,6 +253,29 @@ const Map = ({ trailData, category, setCategory }) => {
         map.getSource("route").setData(newGeoJSON);
       };
     });
+
+    const trailLevelsArray = ["DH", "VAE", "AM"];
+
+    // const uniquePubTypes = Array.from(new Set(trailLevelsArray));
+    const filterElem = document.getElementById("trailLevelFilter");
+    trailLevelsArray.forEach((trailType) => {
+      const opt = document.createElement("option");
+      opt.value = trailType;
+      opt.innerText = trailType;
+      filterElem.appendChild(opt);
+    });
+    filterElem.onchange = () => {
+      const trailType = filterElem.value;
+      const newGeoJSON = { ...trailData };
+      if (trailType) {
+        newGeoJSON.features = trailData.features.filter(
+          (feature) => feature.properties.Difficulté === trailType
+        );
+      } else {
+        newGeoJSON.features = [...trailData.features];
+      }
+      map.getSource("route").setData(newGeoJSON);
+    };
   }, []);
 
   return (
@@ -272,7 +295,21 @@ const Map = ({ trailData, category, setCategory }) => {
                 ref={filterButton}
                 className="overlay  rounded border-gray-700 shadow-lg"
               >
-                <option value="">Tous les Pistes</option>
+                <option value="">Tout</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className=" mapboxgl-control-container text-lg p-3">
+          <div className="mapboxgl-ctrl-top-left">
+            <div className="mapboxgl-ctrl mapboxgl-ctrl-group">
+              <select
+                id="trailLevelFilter"
+                name="trailLevelFilter"
+                ref={trailFilterButton}
+                className="overlay  rounded border-gray-700 shadow-lg"
+              >
+                <option value="">Tout les Types</option>
               </select>
             </div>
           </div>

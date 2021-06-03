@@ -10408,27 +10408,7 @@
           [6.910092979161378, 45.453290530746578, 0.0],
           [6.910063021173984, 45.453269391523463, 0.0],
           [6.910044832391604, 45.453242116838418, 0.0],
-          [6.910039148416192, 45.45320055360969, 0.0]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": null,
-        "Nom": "Tarentaise Airline",
-        "Type": "DH",
-        "Difficulté": "Initie",
-        "Denivele": null,
-        "Distance": null,
-        "ID_1": "TA",
-        "Secteur": "Toviere",
-        "Obs": "Portion Trace GPS 2020",
-        "Colour": "blue"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
+          [6.910039148416192, 45.45320055360969, 0.0],
           [6.926217239678687, 45.442005445885471, 0.0],
           [6.926215749273094, 45.442133647938626, 0.0],
           [6.926136091230657, 45.442275731746911, 0.0],
@@ -10667,6 +10647,25 @@
           [6.9185692743959, 45.44911507252997, 0.0],
           [6.918532749392055, 45.449144981254541, 0.0]
         ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": null,
+        "Nom": "Tarentaise Airline",
+        "Type": "DH",
+        "Difficulté": "Initie",
+        "Denivele": null,
+        "Distance": null,
+        "ID_1": "TA",
+        "Secteur": "Toviere",
+        "Obs": "Portion Trace GPS 2020",
+        "Colour": "blue"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
       }
     },
     {
