@@ -146,16 +146,23 @@ const Map = ({ trailData, category, setCategory }) => {
         type: "symbol",
         source: "route",
         layout: {
-          "symbol-placement": "line-center",
+          "symbol-placement": "line",
           "text-font": ["Open Sans Regular"],
           "text-field": "{Nom}",
           "text-size": 14,
-          "symbol-spacing": 50,
-          "text-anchor": "center",
-          "text-justify": "center",
+          "text-anchor": "top-right",
+          "text-justify": "right",
+          "text-allow-overlap": false,
+          "text-padding": 6,
+          // "symbol-spacing": 50,
+          // "text-letter-spacing": 20,
+          // "text-pitch-alignment": "viewport",
         },
         paint: {
-          "text-color": "#fff",
+          "text-color": "#000",
+          "text-halo-blur": 200,
+          "text-halo-color": "#fff",
+          "text-halo-width": 10,
         },
       });
 
